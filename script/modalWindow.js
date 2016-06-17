@@ -3,16 +3,19 @@ function ModalWindow(title, message, buttons, selector, overlay) {
     this.buttons = buttons;
     this.message = message;
     this.selector = selector;
+    
     var mainElems;
     mainElems =  $("<div>").addClass(selector);
     mainElems.append($("<span>").addClass("modal-close"));
     mainElems.append($("<header>").text(title));
     mainElems.append($("<section>").text(message));
+    
     var formTag = $("<form>");
     for (var i = 0; i < buttons.length; ++i) {
         $("<form>").append(buttons[i]);
     }
     mainElems.append(formTag);
+    
     this.window = $("<div>").append(overlay);
     this.window = $("<div>").append(mainElems);
     
