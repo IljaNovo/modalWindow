@@ -5,9 +5,9 @@ $(document).ready(function() {
     buttons.push(new Button("кнопка2", function(){alert("кнопка2");}, "button1"));
 
 
-    var newModalWindow = new ModalWindow("Окно", "моё модальное окно", buttons, "modal_form", new Overlay("overlay"));
+    var newModalWindow = new ModalWindow("Окно", "моё модальное окно", buttons, new Overlay("overlay"));
     
     $("body").append($(newModalWindow.window));
-    
-    newModalWindow.show();
+                     
+   newModalWindow.show();
 });

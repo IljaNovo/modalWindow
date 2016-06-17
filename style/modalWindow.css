@@ -1,24 +1,24 @@
-.modal_form {
-    width: 350px; 
-	height: 360px;
-    margin-top: -180px;
-	margin-left: -175px;
+.modal-form {
+    width: 400px; 
+	height: 160px;
+    margin-top: -80px;
+	margin-left: -225px;
 }
 
-.modal_form {
+.modal-form {
 	border-radius: 5px;
 	border: 3px #000 solid;
 	background: #fff;
 	position: fixed;
 	top: 45%;
 	left: 50%;
-	display: none;
 	opacity: 0;
 	z-index: 5;
-	padding: 20px 10px;
+	padding: 30px 10px;
+    padding-left: 50px;
 }
 
-.modal_form .modal_close {
+.modal-form .modal-close {
 	width: 21px;
 	height: 21px;
 	position: absolute;
@@ -26,4 +26,25 @@
 	right: 10px;
 	cursor: pointer;
 	display: block;
+}
+
+.modal-form .but {
+    width: 100px;
+    height: 35px;
+    margin-top: 10px;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.modal-form .modal-head {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modal-form .modal-message {
+    margin-top: 20px;
+    font-size: 4;
+    font-size: 25px;
+    width: 340px;
+    height: 50px
 }
