@@ -3,18 +3,23 @@ function ModalWindow(title, message, buttons, selector, overlay) {
     this.buttons = buttons;
     this.message = message;
     this.selector = selector;
-    this.window =  $("<div>").addClass(selector);
-    this.window.append($("<span>").addClass("modal-close"));
-    this.window.append($("<header>").text(title));
-    this.window.append($("<section>").text(message));
+    var mainElems;
+    mainElems =  $("<div>").addClass(selector);
+    mainElems.append($("<span>").addClass("modal-close"));
+    mainElems.append($("<header>").text(title));
+    mainElems.append($("<section>").text(message));
     var formTag = $("<form>");
     for (var i = 0; i < buttons.length; ++i) {
         $("<form>").append(buttons[i]);
     }
-    this.window.append(formTag);
+    mainElems.append(formTag);
+    this.window = $("<div>").append(overlay);
+    this.window = $("<div>").append(mainElems);
+    
+    this.addCloseEvent(".modal-close");
 }
 
-ModalWindow.prototype.closeForm = function() {
+ModalWindow.prototype.hide = function() {
     $(this.selector)
         .animate({opacity: 0, top: '45%'}, 0,
         function() {
@@ -23,7 +28,7 @@ ModalWindow.prototype.closeForm = function() {
         }.bind(this));
 }
 
-ModalWindow.prototype.openForm = function() {
+ModalWindow.prototype.show = function() {
     $(this.overlayl.selector).fadeIn(10,
         function() {
             $(this.selector)
@@ -36,7 +41,7 @@ ModalWindow.prototype.addOpenEvent = function(selector) {
     $(selector)
         .click(function(event) {
             event.preventDefault();
-            this.openForm();
+            this.show();
 	           }.bind(this)
     );
 }
@@ -45,7 +50,7 @@ ModalWindow.prototype.addCloseEvent = function(selector) {
     $(this.overlayl.selector)
         .add(selector)
         .click(function() {
-        this.closeForm();
+        this.hide();
         }.bind(this)
     );
 }
