@@ -11,25 +11,7 @@ function ModalWindow(title, message, buttons, selector, overlay) {
     for (var i = 0; i < buttons.length; ++i) {
         $("<form>").append(buttons[i]);
     }
-    
-    
     $("span").addClass("modal_close").text("X");
-        
-        
-        
-        
-        <div class="delete_modal_form">
-        <span id="delete_modal_close">X</span>
-        <header class="head-modal">Are you sure?</header>
-        <hr /><br />
-        <section class="description">
-            Are you sure you want to perform this action?
-        </section>
-        <footer class="footer-modal">
-            <input type="button" name="YesButton" value="Yes"/>
-            <input type="button" name="NoButton" value="No"/>
-        </footer>
-    </div>
 }
 
 ModalWindow.prototype.closeForm = function() {
