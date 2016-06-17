@@ -1,5 +1,5 @@
 function Button(title, action, selector) {
-    this.button = $("<input>")
+    this.buttonElem = $("<input>")
         .attr("type","button")
         .addClass(selector)
         .attr("value", title);
