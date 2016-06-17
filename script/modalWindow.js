@@ -3,6 +3,7 @@ function ModalWindow(title, message, buttons, selector, overlay) {
     this.buttons = buttons;
     this.message = message;
     this.selector = selector;
+    this.overlay = overlay;
     
     var mainElems;
     mainElems =  $("<div>").addClass(selector);
@@ -32,7 +33,7 @@ ModalWindow.prototype.hide = function() {
 }
 
 ModalWindow.prototype.show = function() {
-    $(this.overlayl.selector).fadeIn(10,
+    $(this.overlay.selector).fadeIn(10,
         function() {
             $(this.selector)
                 .css("display", "block")
@@ -50,7 +51,7 @@ ModalWindow.prototype.addOpenEvent = function(selector) {
 }
 
 ModalWindow.prototype.addCloseEvent = function(selector) {
-    $(this.overlayl.selector)
+    $(this.overlay.selector)
         .add(selector)
         .click(function() {
         this.hide();

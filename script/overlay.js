@@ -1,4 +1,4 @@
 function Overlay(selector) {
-    this.className = selector;
+    this.selector = selector;
     $("<div></div>").addClass(this.selector);
 }
