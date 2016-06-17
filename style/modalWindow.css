@@ -17,6 +17,7 @@
 	z-index: 5;
 	padding: 20px 10px;
 }
+
 .modal_form .modal_close {
 	width: 21px;
 	height: 21px;
@@ -25,8 +26,4 @@
 	right: 10px;
 	cursor: pointer;
 	display: block;
-}
-
-.modal_form[name="addProduct"]{
-    padding-top: 20px;
 }
