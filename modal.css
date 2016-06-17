@@ -1,0 +1,32 @@
+.modal_form {
+    width: 350px; 
+	height: 360px;
+    margin-top: -180px;
+	margin-left: -175px;
+}
+
+.modal_form {
+	border-radius: 5px;
+	border: 3px #000 solid;
+	background: #fff;
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	display: none;
+	opacity: 0;
+	z-index: 5;
+	padding: 20px 10px;
+}
+.modal_form .modal_close {
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: block;
+}
+
+.modal_form[name="addProduct"]{
+    padding-top: 20px;
+}
