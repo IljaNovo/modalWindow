@@ -5,9 +5,11 @@ function ModalWindow(title, message, buttons, selector, overlay) {
     this.selector = selector;
     this.overlay = overlay;
     
+    var elemClose = $("<span>").addClass("modal-close").text("X");
+    this.addCloseEvent(elemClose);
     var mainElems;
     mainElems =  $("<div>").addClass(selector);
-    mainElems.append($("<span>").addClass("modal-close").text("X"));
+    mainElems.append(elemClose);
     mainElems.append($("<header>").text(title));
     mainElems.append($("<section>").text(message));
     
@@ -21,20 +23,19 @@ function ModalWindow(title, message, buttons, selector, overlay) {
     
     this.window.append(overlay.overlayElem);
     
-    this.addCloseEvent(".modal-close");
 }
 
 ModalWindow.prototype.hide = function() {
-    $(this.selector)
+    $(this.window)
         .animate({opacity: 0, top: '45%'}, 0,
         function() {
-            $(this.overlayl.selector).css("display", "none");
-            $(this.ovel).fadeOut(0);
+            $(this.window).css("display", "none");
+            $(this.overlay.overlayElem).fadeOut(0);
         }.bind(this));
 }
 
 ModalWindow.prototype.show = function() {
-    $(this.overlay.selector).fadeIn(10,
+    $(this.overlay.overlayElem).fadeIn(10,
         function() {
             $(this.selector)
                 .css("display", "block")
@@ -42,8 +43,8 @@ ModalWindow.prototype.show = function() {
     }.bind(this));
 }
 
-ModalWindow.prototype.addOpenEvent = function(selector) {
-    $(selector)
+ModalWindow.prototype.addOpenEvent = function(elem) {
+    $(elem)
         .click(function(event) {
             event.preventDefault();
             this.show();
@@ -51,9 +52,9 @@ ModalWindow.prototype.addOpenEvent = function(selector) {
     );
 }
 
-ModalWindow.prototype.addCloseEvent = function(selector) {
-    $(this.overlay.selector)
-        .add(selector)
+ModalWindow.prototype.addCloseEvent = function(elem) {
+    $(this.overlay.overlayElem)
+        .add(elem)
         .click(function() {
         this.hide();
         }.bind(this)
