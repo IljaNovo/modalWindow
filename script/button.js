@@ -3,5 +3,5 @@ function Button(title, action, selector) {
         .attr("type","button")
         .addClass(selector)
         .attr("value", title);
-    $(document).on("click", selector, action);
+    $(this.buttonElem).click(action);
 }
